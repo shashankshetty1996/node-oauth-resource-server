@@ -1,8 +1,10 @@
 const express = require("express");
 
+const { verifyToken } = require("../middleware/");
+
 let router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/", verifyToken, (req, res) => {
   res.send("user route is up");
 });
 
